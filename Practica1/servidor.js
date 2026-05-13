@@ -1,5 +1,5 @@
  
- console.log("Hola Mundo js Servidor");
+console.log("Hola Mundo js Servidor");
 
 console.time("MiProceso");
 
