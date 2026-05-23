@@ -10,7 +10,7 @@ function mostrarCaja() {
         
         console.log(producto + " - $" + precio);
     }
-
+ 
     let subtotal = listaPedidos.reduce(function (acumulador, elemento) {
         return acumulador + elemento.precio;
     }, 0);
