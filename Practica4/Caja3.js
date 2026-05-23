@@ -9,7 +9,6 @@ const notificar = (mensaje, callback) => {
 
 };
 
-
 const cancelarPedido = () => {
 
     pedidoCancelado = true;
