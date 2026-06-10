@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, Image} from 'react-native';
 import { Saludo } from './components/Saludo';
 import { Saludo2 } from './components/Saludo2';
 
+import { Perfil } from './components/Perfil';
+
 /* Zona 2: Main - Hogar de los componentes */
 export default function App() {
   return (
@@ -15,6 +17,10 @@ export default function App() {
       <Saludo></Saludo>
       <Text>----Componente Propio Compuesto----</Text>
       <Saludo2></Saludo2>
+
+      <Text>----Componente Perfil----</Text>
+      <Perfil></Perfil>
+      
       <StatusBar style="auto" />
     </View>
   );
