@@ -7,19 +7,31 @@ import { Saludo2 } from './components/Saludo2';
 import { Perfil } from './components/Perfil';
 
 /* Zona 2: Main - Hogar de los componentes */
+
 export default function App() {
   return (
     <View style={styles.container}>
+
+{/*       Practica 6: Componentes Propios:
       <Text>----React Native----</Text>
       <Image source={require('./assets/wave.png')}/>
       <Text> Hola Mundo React Native </Text>
       <Text>----Componente Propio simple----</Text>
       <Saludo></Saludo>
       <Text>----Componente Propio Compuesto----</Text>
-      <Saludo2></Saludo2>
+      <Saludo2></Saludo2> */}
 
-      <Text>----Componente Perfil----</Text>
-      <Perfil></Perfil>
+
+      <Perfil nombre="Roque" carrera="Sistemas Computacionales" materia="Programación Móvil" cuatrimestre="9" />
+      
+      <Text>--------------------------------------------</Text>
+      <Text>--------------------------------------------</Text>
+      
+      <Perfil 
+      nombre="Roque" 
+      carrera="Sistemas Computacionales" 
+      materia="Programación Móvil" cuatrimestre="9">
+      </Perfil>
       
       <StatusBar style="auto" />
     </View>
