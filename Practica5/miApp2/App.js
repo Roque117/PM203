@@ -20,15 +20,16 @@ export default function App() {
       <Saludo2></Saludo2> */}
 
 
-      <Perfil nombre="Roque" carrera="Sistemas Computacionales" materia="Programación Móvil" cuatrimestre="9" />
+      <Perfil estiloEXT={styles.tarjetaroja} nombre="Roque" carrera="Sistemas Computacionales" materia="Programación Móvil" cuatrimestre="9" />
 
       <Perfil 
+      estiloEXT={styles.tarjetaverde}
       nombre="Josue" 
       carrera="Hola" 
       materia="PM" cuatrimestre="67">
       </Perfil>
       
-
+      <Perfil estiloEXT={styles.tarjetaroja} nombre="Roque" carrera="Sistemas Computacionales" materia="Programación Móvil" cuatrimestre="9" />
 
       <StatusBar style="auto" />
     </View>
@@ -41,6 +42,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
+    flexDirection:'row',
   },
+
+  tarjetaroja: {backgroundColor: '#FF6B6B'},
+  tarjetaverde: {backgroundColor: '#6BCB77',}
+
 });

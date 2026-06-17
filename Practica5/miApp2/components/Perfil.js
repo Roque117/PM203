@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 
-export const Perfil = ({ nombre, carrera, materia, cuatrimestre }) => {
+export const Perfil = ({ nombre, carrera, materia, cuatrimestre, estiloEXT }) => {
     const [mostrar, setMostrar] = useState(false);
     return (
-        <View style={styles.tarjeta}>
+        <View style={[styles.tarjeta, estiloEXT]}>
             <Text style={styles.nombre}> {nombre}</Text>
             {/* rendeizado condicional */}
             {mostrar && 
