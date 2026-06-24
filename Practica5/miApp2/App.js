@@ -17,10 +17,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
+    minHeight: '100%',
     backgroundColor: '#00bcf0',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    flexDirection:'row',
   },
 
 });
