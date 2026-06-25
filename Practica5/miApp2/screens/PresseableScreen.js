@@ -31,6 +31,7 @@ export default function App() {
         />
       </View>
 
+
 {/* --- COMPONENTE 2: PRESSABLE --- */}
       <Pressable
         onPress={() => Alert.alert('Éxito', 'Configuración guardada correctamente')} // Prop: Acción al presionar
