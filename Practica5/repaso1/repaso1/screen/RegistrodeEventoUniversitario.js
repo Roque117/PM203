@@ -15,7 +15,6 @@ export default function RegistrodeEventoUniversitario() {
   const [carrera, setCarrera] = useState("");
   const [semestre, setSemestre] = useState("");
 
-  // Estados para controlar nuestra ventana flotante personalizada
   const [modalVisible, setModalVisible] = useState(false);
   const [modalTitulo, setModalTitulo] = useState("");
   const [modalMensaje, setModalMensaje] = useState("");
@@ -99,7 +98,6 @@ export default function RegistrodeEventoUniversitario() {
         </View>
       </ScrollView>
 
-      {/* AQUÍ ESTÁ EL RECUADRO IDÉNTICO AL DE LA IMAGEN CON EL BOTÓN AZUL "ACEPTAR" */}
       <Modal
         animationType="none"
         transparent={true}
@@ -181,11 +179,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-
-  // DISEÑO DEL CUADRO CLONADO DE TU IMAGEN
   modalFondoFijado: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.15)', // Sombreado sutil externo
+    backgroundColor: 'rgba(0,0,0,0.15)', 
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -196,7 +192,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     padding: 24,
     borderWidth: 3,
-    borderColor: '#000000', // Borde negro grueso de tu foto
+    borderColor: '#000000', 
   },
   urlHeader: {
     fontSize: 14,
@@ -215,16 +211,16 @@ const styles = StyleSheet.create({
     color: '#333',
     lineHeight: 22,
     marginBottom: 20,
-    whiteSpace: 'pre-line', // Mantiene los saltos de línea \n ordenados
+    whiteSpace: 'pre-line',
   },
   alinearDerecha: {
-    alignItems: 'flex-end', // Pone el botón a la derecha exacta
+    alignItems: 'flex-end',
   },
   botonAzulAceptar: {
-    backgroundColor: '#0066ff', // Azul vibrante idéntico
+    backgroundColor: '#0066ff',
     paddingVertical: 10,
     paddingHorizontal: 26,
-    borderRadius: 10, // Bordes súper redondos como el tuyo
+    borderRadius: 10,
   },
   textoBotonAceptar: {
     color: '#ffffff',
