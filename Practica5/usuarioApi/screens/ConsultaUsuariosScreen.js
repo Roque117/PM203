@@ -1,16 +1,42 @@
-import React from 'react';
-import {SafeAreaView,View,Text,FlatList,StyleSheet,
-} from 'react-native';
+import React, { useState, useCallback } from 'react';
+import { SafeAreaView, View, Text, FlatList, StyleSheet, Platform } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function ConsultaUsuariosScreen() {
+  /*Esto fue la parte 2 la consulta de usuarios desde react*/
+  const [usuarios, setUsuario] = useState([]);
 
-  const usuarios = [
-    { id: '1', nombre: 'Isay Guerra', edad: 22 },
-    { id: '2', nombre: 'Ana López', edad: 19 },
-    { id: '3', nombre: 'Carlos Gonzalez', edad: 25 },
-    { id: '4', nombre: 'Bjork Guerra', edad: 21 },
-    { id: '5', nombre: 'Luisa Martínez', edad: 28 },
-  ];
+  // En web usa localhost, en celular usa la IP de tu PC
+  const API_URL = Platform.OS === 'web'
+    ? 'http://localhost:5000/v1/usuarios/'
+    : 'http://192.168.1.73:5000/v1/usuarios/';
+
+  const obtenerUsuarios = async () => {
+    try {
+      const respuesta = await fetch(API_URL);
+      const datos = await respuesta.json();
+      console.log("Respuesta API: ", datos);
+      setUsuario(datos.usuarios);
+    } catch (error) {
+      console.log("Error API: ", error);
+    }
+  };
+
+  // Se ejecuta cada vez que entras a este tab
+  useFocusEffect(
+    useCallback(() => {
+      obtenerUsuarios();
+    }, [])
+  );
+
+  /*esto fue de la parte 1 */
+  // const usuarios = [
+  //   { id: '1', nombre: 'Isay Guerra', edad: 22 },
+  //   { id: '2', nombre: 'Ana López', edad: 19 },
+  //   { id: '3', nombre: 'Carlos Gonzalez', edad: 25 },
+  //   { id: '4', nombre: 'Bjork Guerra', edad: 21 },
+  //   { id: '5', nombre: 'Luisa Martínez', edad: 28 },
+  // ];
 
   const renderTarjeta = ({ item }) => (
     <View style={styles.card}>
@@ -44,7 +70,7 @@ export default function ConsultaUsuariosScreen() {
 
     </SafeAreaView>
   );
-  
+
 }
 
 const styles = StyleSheet.create({
