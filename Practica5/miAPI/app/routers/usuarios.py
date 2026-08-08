@@ -43,8 +43,7 @@ async def crear_usuario(usuario: UsuarioBase, db: Session = Depends(get_db)):
 async def actualizar_usuario(
     id: int,
     usuario_actualizado: UsuarioBase,
-    db: Session = Depends(get_db),
-    username: str = Depends(verificar_peticion)
+    db: Session = Depends(get_db)
 ):
     usuario = db.query(Usuario).filter(Usuario.id == id).first()
 
@@ -58,18 +57,16 @@ async def actualizar_usuario(
     db.refresh(usuario)
 
     return {
-        "message": f"Usuario actualizado completamente por {username}",
-        "data": usuario
+        "mensaje": "Usuario actualizado correctamente",
+        "usuario": usuario
     }
-
 
 
 @router.patch("/{id}", status_code=status.HTTP_200_OK)
 async def actualizar_parcial(
     id: int,
     datos: dict,
-    db: Session = Depends(get_db),
-    username: str = Depends(verificar_peticion)
+    db: Session = Depends(get_db)
 ):
     usuario = db.query(Usuario).filter(Usuario.id == id).first()
 
@@ -84,16 +81,15 @@ async def actualizar_parcial(
     db.refresh(usuario)
 
     return {
-        "message": f"Usuario actualizado parcialmente por {username}",
-        "data": usuario
+        "mensaje": "Usuario actualizado parcialmente",
+        "usuario": usuario
     }
 
 
 @router.delete("/{id}", status_code=status.HTTP_200_OK)
 async def eliminar_usuario(
     id: int,
-    db: Session = Depends(get_db),
-    username: str = Depends(verificar_peticion)
+    db: Session = Depends(get_db)
 ):
     usuario = db.query(Usuario).filter(Usuario.id == id).first()
 
@@ -104,5 +100,5 @@ async def eliminar_usuario(
     db.commit()
 
     return {
-        "message": f"Usuario eliminado correctamente por {username}"
+        "mensaje": "Usuario eliminado correctamente"
     }

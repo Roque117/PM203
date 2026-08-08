@@ -9,7 +9,7 @@ export default function App() {
   // En web usa localhost, en celular usa la IP de tu PC
   const API_URL = Platform.OS === 'web'
     ? 'http://localhost:5000/v1/usuarios/'
-    : 'http://192.168.1.73:5000/v1/usuarios/';
+    : 'http://192.168.1.112:5000/v1/usuarios/';
 
   const mostrarMensaje = (titulo, mensaje) => {
     if (Platform.OS === 'web') {
