@@ -12,8 +12,8 @@ export default function ActualizarUsuarioScreen() {
   const [cargando, setCargando] = useState(false);
 
   const API_URL = Platform.OS === 'web'
-    ? 'http://localhost:5000/v1/usuarios/'
-    : 'http://192.168.1.112:5000/v1/usuarios/';
+    ? 'http://localhost:5000/v1/usuarios'
+    : 'http://192.168.1.112:5000/v1/usuarios';
 
   const mostrarMensaje = (titulo, mensaje) => {
     if (Platform.OS === 'web') {
@@ -31,7 +31,7 @@ export default function ActualizarUsuarioScreen() {
 
     try {
       setCargando(true);
-      const urlActualizar = `${API_URL}${id}`;
+      const urlActualizar = `${API_URL}/${id}`;
       const respuesta = await fetch(urlActualizar, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -49,7 +49,7 @@ export default function ActualizarUsuarioScreen() {
       }
     } catch (error) {
       console.log('Error API al actualizar:', error);
-      mostrarMensaje('Error', 'Ocurrió un error al actualizar los datos');
+      mostrarMensaje('Error de Conexión', error.message || String(error));
     } finally {
       setCargando(false);
     }

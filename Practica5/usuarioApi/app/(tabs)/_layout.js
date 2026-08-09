@@ -9,14 +9,14 @@ export default function TabsLayout() {
             <Tabs.Screen name="alta" options={{
                     title: "Formulario",
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="create-outline" color={"Black"} size={size} />
+                        <Ionicons name="create-outline" color={"black"} size={size} />
                     ),
                 }}
             />
             <Tabs.Screen name="consulta" options={{
                     title: "Listado",
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="list-outline" color={"Black"} size={size} />
+                        <Ionicons name="list-outline" color={"black"} size={size} />
                     ),
                 }}
             />

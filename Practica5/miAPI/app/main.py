@@ -28,7 +28,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins, #permite que los clientes de estos origenes se conecten a la API
+    allow_origins=["*"], #permite cualquier origen
     allow_credentials=True, #permite que los clientes envien credenciales (cookies, autenticacion, etc.)
     allow_methods=["*"], #significa que cualquier metodo HTTP esta permitido
     allow_headers=["*"], #permite cualquier cabecera en la peticion

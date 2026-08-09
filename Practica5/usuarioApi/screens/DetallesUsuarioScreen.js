@@ -14,8 +14,8 @@ export default function DetallesUsuarioScreen() {
   const [cargando, setCargando] = useState(false);
 
   const API_URL = Platform.OS === 'web'
-    ? 'http://localhost:5000/v1/usuarios/'
-    : 'http://192.168.1.112:5000/v1/usuarios/';
+    ? 'http://localhost:5000/v1/usuarios'
+    : 'http://192.168.1.112:5000/v1/usuarios';
 
   const mostrarMensaje = (titulo, mensaje) => {
     if (Platform.OS === 'web') {
@@ -35,7 +35,7 @@ export default function DetallesUsuarioScreen() {
   const confirmarEliminar = async () => {
     try {
       setCargando(true);
-      const urlEliminar = `${API_URL}${id}`;
+      const urlEliminar = `${API_URL}/${id}`;
       const respuesta = await fetch(urlEliminar, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
@@ -50,7 +50,7 @@ export default function DetallesUsuarioScreen() {
       }
     } catch (error) {
       console.log('Error API al eliminar:', error);
-      mostrarMensaje('Error', 'Ocurrió un error al conectar con el servidor');
+      mostrarMensaje('Error de Conexión', error.message || String(error));
     } finally {
       setCargando(false);
     }

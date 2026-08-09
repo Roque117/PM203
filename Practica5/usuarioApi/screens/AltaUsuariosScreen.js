@@ -42,7 +42,7 @@ export default function App() {
 
     } catch (error) {
       console.log("Error API: ", error);
-      mostrarMensaje("Error", "No fue posible guardar");
+      mostrarMensaje("Error de Conexión", error.message || String(error));
     } finally {
       setCargando(false);
     }
@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     backgroundColor: '#F9FAFB',
     fontSize: 16,
+    color: '#1F2937',
   },
 
   boton: {

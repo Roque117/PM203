@@ -17,7 +17,13 @@ export default function ConsultaUsuariosScreen() {
       const respuesta = await fetch(API_URL);
       const datos = await respuesta.json();
       console.log("Respuesta API: ", datos);
-      setUsuarios(datos.usuarios || []);
+      if (Array.isArray(datos)) {
+        setUsuarios(datos);
+      } else if (datos && Array.isArray(datos.usuarios)) {
+        setUsuarios(datos.usuarios);
+      } else {
+        setUsuarios([]);
+      }
     } catch (error) {
       console.log("Error API: ", error);
     }
